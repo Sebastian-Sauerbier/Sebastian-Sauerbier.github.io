@@ -1,0 +1,211 @@
+:root {
+  --white: #ccc;
+  --bg: #111;
+  --dark: #22222299;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  display: flex;
+  flex-flow: column nowrap;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(https://img.wallpapersafari.com/desktop/1920/1080/36/56/STeUnR.jpg);
+  background-size: cover;
+  background-position: center; 
+  filter: blur(5px) grayscale(0.3) brightness(0.7);
+}
+body > * {
+  z-index: 100;
+}
+nav {
+  position: sticky;
+  width: 100%;
+  background: var(--dark);
+  display: flex;
+  justify-content: space-between;
+}
+main {
+  flex: 1 1 0;
+  position: relative;
+}
+footer {
+  flex: 0 0 0;
+  background: var(--dark);
+}
+
+#navMain {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+#slideShow {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+}
+.slideItem {
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 10%;
+  color: var(--white);
+  text-shadow: 0 0 5px black;
+}
+.musicTextBox {
+  flex: 1 1 0;
+  margin: 1rem;
+}
+.musicBox {
+  position: relative;
+  align-self: center;
+}
+.musicBox > div {
+  position: absolute;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(https://img.wallpapersafari.com/desktop/1920/1080/36/56/STeUnR.jpg);
+  background-size: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 5px inset #000;
+  transition: filter .4s ease-in-out;
+}
+.musicBox > div:hover {
+  filter: saturate(1.2) brightness(1.1);
+}
+.playCircle {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border: .5rem solid var(--white);
+  border-radius: 50%;
+  transition: box-shadow .4s ease-in-out;
+}
+.playArrow {
+  margin-left: .5rem;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--white);
+  border-width: 1rem;
+  border-left-width: 2rem;
+  border-right-width: 0;
+  transition: filter .4s ease-in-out;
+}
+.musicBox > div:hover .playCircle {
+  box-shadow: 0 0 5px black, 0 0 5px inset black;
+}
+.musicBox > div:hover .playArrow {
+  filter: drop-shadow(0 0 5px black);
+}
+
+#btLeft, #btRight {
+  position: absolute;
+  padding: 2rem;
+  margin: .5rem;
+  background: var(--dark);
+  border-width: 0;
+  border-radius: 50%;
+  opacity: 0.5;
+  box-shadow: 0px 0px 5px black;
+  transition: opacity .5s ease-in-out;
+}
+#btLeft:hover, #btRight:hover {
+  opacity: 1;
+}
+@media screen and (orientation:portrait) {
+  #slideShow {
+    padding-top: 5%;
+    padding-bottom: 5rem;
+  }
+  .slideItem {
+    flex-flow: column-reverse nowrap;
+  }
+  .musicBox {
+    width: 100%;
+    flex: 0 0 0;
+    padding-bottom: 56.25%;
+  }
+  #btLeft {
+    bottom: 0;
+    right: 55%;
+  }
+  #btRight {
+    bottom: 0;
+    left: 55%;
+  }
+}
+@media screen and (orientation:landscape) {
+  #slideShow {
+    padding: 5% 0;
+  }
+  .slideItem {
+    flex-flow: row nowrap;
+  }
+  .musicBox {
+    width: 60%;
+    flex: 0 0 60%;
+    padding-bottom: 33.75%;
+  }
+  #btLeft {
+    top: calc(50% - 2rem);
+    left: 0;
+  }
+  #btRight {
+    top: calc(50% - 2rem);
+    right: 0;
+  }
+}
+
+
+
+#play {
+  margin: 10px;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  opacity: 0.5;
+}
+#play > .arrow {
+  border-style: solid;
+  border-width: 20px;
+  border-left-width: 40px;
+  border-right-width: 0;
+  border-color: transparent transparent transparent var(--white);
+  margin: auto;
+}
+#play > .circle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: inline-block;
+  border: 10px solid var(--white);
+  border-radius: 50%;
+}

@@ -1,0 +1,86 @@
+:root {
+  --text-white: #A3A7AB;
+}
+::selection {
+  background: #7F7F7F33;
+}
+.no-select {
+  user-select: none;
+}
+
+header {
+  padding: .2em;
+
+  /* white? */
+  background: #272727;
+  /* background: rgb(238, 238, 238); */
+
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 300;
+  color: var(--text-white);
+
+  box-shadow: 5px 5px 50px #272727;
+}
+
+.menuButton {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.menuButtonIcon {
+  position: relative;
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 .2em;
+}
+.menuButtonIcon span {
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  height: 16.666%;
+  border-radius: 100rem;
+  background: var(--text-white);
+  transition: all .3s ease-in;
+}
+.menuButtonNW {
+  top: 0;
+  left: 0;
+}
+.menuOpen .menuButtonNW {
+  width: 50%;
+  top: 16.666%;
+  transform: rotate(45deg);
+}
+.menuButtonNE {
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+}
+.menuOpen .menuButtonNE {
+  width: 50%;
+  top: 16.666%;
+  transform: rotate(-45deg);
+}
+.menuButtonSE {
+  right: 0;
+  bottom: 0;
+}
+.menuOpen .menuButtonSE {
+  width: 50%;
+  bottom: 16.666%;
+  transform: rotate(45deg);
+}
+.menuButtonSW {
+  bottom: 50%;
+  left: 0;
+  transform: translate(0, 50%);
+}
+.menuOpen .menuButtonSW {
+  width: 50%;
+  bottom: 16.666%;
+  transform: rotate(-45deg);
+}
